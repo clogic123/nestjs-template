@@ -1,10 +1,8 @@
 import core from "@nestia/core";
 import * as nest from "@nestjs/common";
+import typia from "typia";
 
 import { UserProfileDTO } from "@/app/user/user.dto";
-import { UsersUsecase } from "@/app/user/users.usecase";
-import { Exception } from "@/common/exception";
-import { Regex } from "@/util/type";
 
 @nest.Controller("users")
 export class UsersController {
@@ -16,9 +14,10 @@ export class UsersController {
      * @param user_id user id
      * @return 사용자 정보
      */
-    @core.TypedException<Exception.User.NotFound>({ status: nest.HttpStatus.NOT_FOUND })
+    @core.TypedException<"USER_NOT_FOUND">({ status: nest.HttpStatus.NOT_FOUND })
     @core.TypedRoute.Get(":user_id")
-    async profile(@core.TypedParam("user_id") user_id: Regex.UUID): Promise<UserProfileDTO> {
-        return UsersUsecase.profile({ user_id });
+    async profile(@core.TypedParam("user_id") user_id: string): Promise<UserProfileDTO> {
+        user_id;
+        return typia.random<UserProfileDTO>();
     }
 }

@@ -5,8 +5,6 @@
 ![NestJS](https://img.shields.io/badge/nestjs-%23E0234E.svg?style=for-the-badge&logo=nestjs&logoColor=white)
 ![Prisma](https://img.shields.io/badge/Prisma-3982CE?style=for-the-badge&logo=Prisma&logoColor=white)
 
-[![Test Status](https://github.com/rojiwon123/nestia-template/actions/workflows/release.yml/badge.svg)](https://github.com/rojiwon123/nestia-template/actions/workflows/release.yml)
-
 </div>
 
 nestjs 프레임워크 환경에서 nestia, prisma를 적용한 보일러플레이트
@@ -26,9 +24,8 @@ nestjs 프레임워크 환경에서 nestia, prisma를 적용한 보일러플레�
 ### 예시
 
 ```ts
-import { Controller, Get, Param } from "@nestjs/common";
-
 import { Article } from "@SRC/app/article/article.dto";
+import { Controller, Get, Param } from "@nestjs/common";
 
 @Controller("articles")
 export class ArticlesController {
@@ -89,10 +86,6 @@ prisma schema 기반으로 markdown 형식의 ERD 자동 생성
 
 -   `npm run db:sync` : prisma migration 동기화
 -   `npm run db:console` : prisma studio 실행
-
-## CI/CD
-
--   `main` branch PR 생성시 github action에서 테스트 자동화 및 리포트 작성
 
 ## Appendix
 

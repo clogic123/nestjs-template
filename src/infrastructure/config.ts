@@ -33,3 +33,5 @@ interface IConfig {
     PORT: number;
     DATABASE_URL: string;
 }
+
+export const config = new Config();
